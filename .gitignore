@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Config with API keys
+src/config/config.py
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Debug/temp scripts
+debug_*.py
+fetch_address.py
+
+# Excalidraw
+*.excalidraw

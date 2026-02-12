@@ -1,0 +1,2 @@
+GETBLOCK_BCH_API_KEY = 'YOUR_API_KEY_HERE'
+GETBLOCK_BCH_URL = 'https://go.getblock.io/'
