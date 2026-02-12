@@ -53,18 +53,12 @@ cp src/config/config.example.py src/config/config.py
 
 ## Usage
 
-Edit `main.py` to set the target address and number of blocks to scan:
-
-```python
-address_to_check = "qqw5tr9x8t73uqes53jewjk7ks63tz3xmygq3k64x4"
-blocks_to_check = 10
-```
-
-Run the scanner:
+Run the programm:
 
 ```bash
 python main.py
 ```
+Writte input: address and number of blocks
 
 Example output:
 
@@ -74,6 +68,7 @@ Scanning blocks 937980 to 937971...
   Block 937979: contain 290 txs
   ...
 Block Height: 937979, TXID: 96cd0ff3..., Type: received, Amount: 3.14260572
+...
 ```
 
 ## API Key
