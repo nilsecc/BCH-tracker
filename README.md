@@ -7,9 +7,9 @@ Bitcoin Cash (BCH) blockchain scanner that tracks address activity using the JSO
 - Detect **received** and **sent** transactions for any address
 - Handles the `bitcoincash:` address prefix automatically
 - RPC response caching to minimize API calls
+- Added database support to store data from API calls
 
 ## Pending features
-- [ ] Add database support
 - [ ] Add block analysis logic
 - [ ] Add terminal dashboard with statistics
 
@@ -17,18 +17,19 @@ Bitcoin Cash (BCH) blockchain scanner that tracks address activity using the JSO
 
 ```
 BCH-tracker/
-├── main.py                    # Entry point
-├── requirements.txt           # Python dependencies
+├── main.py                      # Entry point
+├── requirements.txt             # Python dependencies
 ├── src/
-│   ├── api/
-│   │   └── client.py          # JSON-RPC client & address scanner
+│   ├── data_provider/
+│   │   └── client.py            # JSON-RPC client & address scanner
 │   ├── config/
-│   │   ├── config.py          # YOUR API keys (gitignored)
-│   │   └── config.example.py  # Template for config.py
+│   │   ├── config.py            # YOUR API keys (gitignored)
+│   │   └── config.template.py   # Template for config.py
 │   ├── core/
-│   │   └── scanner.py         # Block analysis logic (not done yet)
-│   └── database/
-│       └── manager.py         # DB storage (not done yet)
+│   │   └── scanner.py           # Block analysis logic (not done yet)
+│   ├── database/
+│   │   ├── database_handler.py  # Database manipulation
+│   │   └── database.py          # Database creation 
 ```
 
 ## Setup
@@ -86,4 +87,5 @@ This project temporarily uses [GetBlock](https://getblock.io/) as the RPC provid
 - [ ] SQLite database storage
 - [ ] Transaction statistics & analytics
 - [ ] Terminal dashboard
-
+- [ ] Make a full node 
+- [ ] Use fulcrum and swap co
