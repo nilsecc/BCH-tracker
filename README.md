@@ -25,7 +25,7 @@ BCH-tracker/
 │   ├── config/
 │   │   ├── config.py            # YOUR API keys (gitignored)
 │   │   └── config.template.py   # Template for config.py
-│   ├── core/
+│   ├── statistics/
 │   │   └── scanner.py           # Block analysis logic (not done yet)
 │   ├── database/
 │   │   ├── database_handler.py  # Database manipulation
