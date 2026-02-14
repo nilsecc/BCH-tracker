@@ -84,7 +84,7 @@ This project temporarily uses [GetBlock](https://getblock.io/) as the RPC provid
 
 - [x] JSON-RPC client
 - [x] Address activity scanner (received + sent)
-- [ ] SQLite database storage
+- [x] SQLite database storage
 - [ ] Transaction statistics & analytics
 - [ ] Terminal dashboard
 - [ ] Make a full node 
