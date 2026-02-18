@@ -97,9 +97,9 @@ This project temporarily uses [GetBlock](https://getblock.io/) as the RPC provid
 - [x] Address activity scanner (received + sent)
 - [x] SQLite database storage
 - [x] Transaction statistics & analytics
-- [ ] Terminal dashboard
 - [ ] Full node support
 - [ ] Extend data to include more details about transactions
-- [ ] Add more statistics
+- [ ] Add more complex statistics
+- [ ] Terminal dashboard
 
 This project is a work in progress. The main goal is to create a tool that can be used to track the activity of any address using a full node + indexer. This make the data getting process faster and more reliable.
