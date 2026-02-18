@@ -18,6 +18,10 @@ env/
 # Config with API keys
 src/config/config.py
 
+# SQLite database 
+*.db
+*.sqlite3
+
 # OS
 .DS_Store
 Thumbs.db

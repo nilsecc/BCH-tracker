@@ -1,27 +1,40 @@
 from src.config.config import GETBLOCK_BCH_URL, GETBLOCK_BCH_API_KEY
-import requests, json
+import requests, json, time
+
+_INTER_CALL_DELAY = 0.2
+
+_MAX_RETRIES = 5
+_BACKOFF_BASE = 2
 
 def call_rpc(method, params=None):
     if params is None:
         params = []
 
-    headers = {
-        "Content-Type": "application/json" 
-    }
+    headers = {"Content-Type": "application/json"}
     payload = {
         "jsonrpc": "2.0",
         "id": 1,
         "method": method,
-        "params": params
+        "params": params,
     }
-
     url = GETBLOCK_BCH_URL + GETBLOCK_BCH_API_KEY
-    response = requests.post(url, headers=headers, json=payload)
-    
-    if response.status_code != 200:
-        raise Exception("Error in RPC call: " + str(response.text))
 
-    return response.json().get('result', {})
+    last_error = None
+    for attempt in range(1, _MAX_RETRIES + 1):
+        try:
+            time.sleep(_INTER_CALL_DELAY)
+            response = requests.post(url, headers=headers, json=payload, timeout=30)
+            if response.status_code != 200:
+                raise Exception("Error in RPC call: " + str(response.text))
+            return response.json().get('result', {})
+        except Exception as e:
+            last_error = e
+            if attempt < _MAX_RETRIES:
+                wait = _BACKOFF_BASE ** (attempt - 1)   # 1s, 2s, 4s, 8s …
+                print(f"  [RPC] {method} failed (attempt {attempt}/{_MAX_RETRIES}), retrying in {wait}s… ({e})")
+                time.sleep(wait)
+
+    raise Exception(f"RPC call '{method}' failed after {_MAX_RETRIES} attempts: {last_error}")
 
 
 # Strip 'bitcoincash:' prefix 
